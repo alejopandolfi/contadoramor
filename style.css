@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #d39595; /* Color de fondo rosa suave */
+    text-align: center;
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+#content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#counter {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#message {
+    font-size: 24px;
+}
+
+
+.heart {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-repeat:no-repeat ;
+    background-image: url('corazon.png'); /* Reemplaza 'corazon.png' con tu imagen de corazón */
+    background-size: contain;
+    animation: fall 3.5s linear infinite; /* Reducir la duración de la animación */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px); /* Comenzar arriba de la pantalla */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Terminar debajo de la pantalla */
+        opacity: 0;
+    }
+}
+
+.note {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+  }
+  
+  .note img {
+    width: 300px; /* Ajusta el tamaño de la imagen según sea necesario */
+  }
+  
+
+ 
+  
+  .note2 {
+    position: fixed;
+    top: 20px; /* Cambiado a 'top' para colocarlo en la esquina superior */
+    right: 20px; /* Mantenemos 'right' */
+  }
+  
+  .note2 img {
+    width: 300px; /* Ajusta el tamaño de la imagen según sea necesario */
+ 
+  }
+  
+  .carousel-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    height: auto;
+    overflow: hidden;
+    border: 2px solid #f0f0f0; /* Borde para dar un aspecto elegante */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.carousel {
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.5s ease; /* Transición suave al cambiar las imágenes */
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+
+  
