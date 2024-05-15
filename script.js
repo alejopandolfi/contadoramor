@@ -1,16 +1,28 @@
-// Fecha de inicio de la relación
-var startDate = new Date('2023-11-07'); // Fecha hace 5 meses y 22 días
+// Fecha y hora de inicio de la relación (1am)
+var startDate = new Date('2023-11-07T01:00:00'); // Cambia la fecha según sea necesario
 
-// Función para calcular los días transcurridos
-function calculateDays() {
+// Función para calcular los meses, días y horas transcurridas
+function calculateTimeElapsed() {
     var now = new Date();
-    var difference = now.getTime() - startDate.getTime();
-    var daysElapsed = Math.floor(difference / (1000 * 60 * 60 * 24));
-    document.getElementById('counter').innerText = daysElapsed + " días juntos";
+    var monthsElapsed = now.getMonth() - startDate.getMonth() + (12 * (now.getFullYear() - startDate.getFullYear()));
+    var startDateCopy = new Date(startDate); // Hacemos una copia de la fecha de inicio
+    startDateCopy.setMonth(startDateCopy.getMonth() + monthsElapsed); // Avanzamos la fecha de inicio por el número de meses transcurridos
+    var daysElapsed = Math.floor((now - startDateCopy) / (1000 * 60 * 60 * 24)); // Calculamos los días transcurridos después de los meses completos
+
+    // Construimos el mensaje con los meses y días actualizados
+    var message = "¡Ya pasamos " + monthsElapsed + " meses y " + daysElapsed + " días juntos! Te amo con todo mi corazón amor de mi vida ❤️";
+    document.getElementById('message').innerText = message;
 }
 
 // Llamar a la función cada segundo para actualizar el contador
-setInterval(calculateDays, 1000);
+setInterval(function() {
+    calculateTimeElapsed();
+}, 1000);
+
+// Calcular y mostrar el tiempo transcurrido al cargar la página
+calculateTimeElapsed();
+
+
 
 // Limitar la cantidad de corazones creados por segundo
 var maxHeartsPerSecond = 6; // Establece el número máximo de corazones por segundo
